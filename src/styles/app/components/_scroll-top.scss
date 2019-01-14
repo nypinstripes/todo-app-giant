@@ -1,0 +1,80 @@
+.scroll-top-btn {
+  background-color: rgba($boulder, 0.85);
+  border-radius: 6px;
+  min-height: 30px;
+  min-width: 30px;
+  opacity: 0;
+  padding: 0;
+  z-index: 1000;
+  @include size(40px);
+  @include position(fixed, null 18px 18px null);
+  @include transitions(
+    $duration: 180ms,
+    $property: #{background-color, box-shadow, opacity, transform}
+  );
+  @include breakpoint($large) {
+    background-color: rgba($boulder, 0.65);
+  }
+  &:hover {
+    @include breakpoint($large) {
+      background-color: rgba($boulder, 1);
+    }
+    .icon-arrow {
+      &-center {
+        z-index: 4;
+        use {
+          @include breakpoint($large) {
+            stroke-dasharray: 59.5339241027832, 59.5339241027832;
+            stroke-dashoffset: 58;
+          }
+        }
+      }
+      &-left, &-right {
+        use {
+          @include breakpoint($large) {
+            animation-delay: 200ms;
+            stroke-dashoffset: 30;
+          }
+        }
+      }
+      &-left {
+        z-index: 2;
+        use {
+          @include breakpoint($large) {
+            stroke-dasharray: 29.959726333618164, 29.959726333618164;
+          }
+        }
+      }
+      &-right {
+        z-index: 3;
+        use {
+          @include breakpoint($large) {
+            stroke-dasharray: 29.945518493652344, 29.945518493652344;
+          }
+        }
+      }
+    }
+  }
+  &:focus, &:active {
+    background-color: white;
+    box-shadow: inset 0 0 0 1px $boulder;
+    path {
+      stroke: $boulder;
+    }
+  }
+  &.active {
+    opacity: 1;
+  }
+  path {
+    stroke: white;
+  }
+  [class*='icon-arrow'] {
+    @include position(absolute, 0);
+    @include size(24px);
+    use {
+      @include breakpoint($large) {
+        @include animations($duration: 350ms, $name: strokeDash);
+      }
+    }
+  }
+}

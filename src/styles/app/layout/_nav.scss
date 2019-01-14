@@ -1,0 +1,111 @@
+.nav {
+  &-action {
+    @include center-y;
+  }
+  &-actions {
+    right: $appPaddingX;
+    z-index: 2;
+    @include breakpoint($large) {
+      right: $appPaddingXLarge;
+    }
+  }
+  &-bar {
+    background-color: $mercury;
+    top: $headerHeight;
+    z-index: 1002;
+    @include position(fixed, null 0);
+    @include size(100% calc(#{$navHeight}));
+    @include breakpoint($large) {
+      top: $headerHeightLarge;
+    }
+    > div {
+      height: 100%;
+      @include float-box;
+      @include position(absolute, 0 null);
+    }
+  }
+  &-tabs {
+    left: $appPaddingX;
+    z-index: 3;
+    @include breakpoint($large) {
+      left: $appPaddingXLarge;
+    }
+  }
+  &-tab {
+    height: $navHeight;
+    margin-left: 12px;
+    outline: none;
+    position: relative;
+    @include float-box;
+    @include breakpoint($medium) {
+      margin-left: 16px;
+    }
+    &:hover {
+      > span {
+        @include breakpoint($large) {
+          color: $boulder;
+        }
+        &::before {
+          @include breakpoint($large) {
+            background-color: $boulder;
+          }
+        }
+      }
+    }
+    &:focus, &:active {
+      > span {
+        color: $boulder;
+        &::before {
+          background-color: $boulder;
+        }
+      }
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+
+    // TODO: DRY this with an array/loop.
+
+    &#tab {
+      &-active {
+        &.current-active {
+          > span {
+            @include active-text($boulder)
+          }
+        }
+      }
+      &-all {
+        &.current-all {
+          > span {
+            @include active-text($boulder)
+          }
+        }
+      }
+      &-archived {
+        &.current-archived {
+          > span {
+            @include active-text($boulder)
+          }
+        }
+      }
+      &-completed {
+        &.current-completed {
+          > span {
+            @include active-text($boulder)
+          }
+        }
+      }
+    }
+    > span {
+      color: $silver;
+      height: 14px;
+      text-align: left;
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: color 100ms linear 0s;
+      @include center-y;
+      @include font-mass(0.875rem, 0.875rem);
+      @include hz-underline($silver);
+    }
+  }
+}

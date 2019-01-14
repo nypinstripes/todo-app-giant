@@ -1,0 +1,46 @@
+body {
+  background-color: white;
+  color: $boulder;
+  font: system(16px, 16px);
+  float: left;
+  overflow-x: hidden;
+  vertical-align: top;
+  width: 100%;
+  -webkit-font-smoothing: auto;
+  @include no-spacing;
+  &.no-scroll {
+    overflow: hidden !important;
+    #app-container {
+      overflow: hidden;
+    }
+  }
+}
+
+#app-container {
+  float: left;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: $appPaddingY 0;
+  z-index: 2;
+  @include position(fixed, 0);
+  @include size(100vw 100%);
+  @include breakpoint($medium) {
+    padding-top: $appPaddingYLarge;
+  }
+}
+
+.page-root {
+  padding: 0;
+  position: relative;
+  text-align: center;
+  transition: padding-top 175ms ease-out 25ms;
+  @include float-row;
+  &.full-page {
+    padding: 0;
+  }
+  > section {
+    margin-bottom: 50px;
+    position: relative;
+    @include float-row;
+  }
+}

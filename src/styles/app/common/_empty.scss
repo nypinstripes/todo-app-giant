@@ -1,0 +1,68 @@
+.empty {
+  margin-top: 50px;
+  min-height: 200px;
+  opacity: 0;
+  width: 100%;
+  @include animations($delay: 3s, $name: fadeIn, $timing: linear);
+  @include center-x;
+  @include breakpoint($medium) {
+    @include size(668px 400px);
+  }
+  &-icon {
+    margin-left: -30px;
+    @include animations(
+      $count: infinite,
+      $direction: #{alternate, normal},
+      $duration: #{1s, 3s},
+      $name: #{gearBounce, gearSpin},
+      $timing: #{cubic-bezier(0.63, 0.09, 0.75, 0.46), linear}
+    );
+    @include float-box;
+    @include position(absolute, null null 0 50%);
+    @include size(60px);
+    &-container {
+      border-bottom: edge($color: rgba(white, 0.75), $size: 2);
+      overflow: hidden;
+      @include center-x;
+      @include size(155px 120px);
+    }
+    path {
+      stroke: white;
+      stroke-width: 3px;
+    }
+  }
+  &-msg {
+    margin-top: 30px;
+    text-align: center;
+    @include center-x;
+    h2 {
+      @include font-mass(1.35rem, 1rem, 700);
+    }
+    p {
+      margin-top: 20px;
+      @include font-mass;
+    }
+  }
+  .pebble {
+    background-color: rgba(white, 0.75);
+    border-radius: 20px 20px 0 0;
+    position: absolute;
+    @include animations($count: infinite, $name: roadBumps, $timing: linear);
+    &:nth-child(1) {
+      animation-duration: 1s;
+      top: 95%;
+      @include size(10px);
+    }
+    &:nth-child(2) {
+      animation-duration: 2s;
+      border-radius: 10px 10px 0 0;
+      top: 97%;
+      @include size(5px);
+    }
+    &:nth-child(3) {
+      animation-duration: 3s;
+      top: 98%;
+      @include size(3px);
+    }
+  }
+}

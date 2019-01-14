@@ -1,0 +1,12 @@
+.app {
+  @include float-row;
+  &-body {
+    margin-bottom: 10px;
+    min-height: calc(100vh - 300px);
+    position: relative;
+    @include float-row;
+    @include breakpoint($large) {
+      margin-bottom: 60px;
+    }
+  }
+}

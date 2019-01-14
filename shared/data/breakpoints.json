@@ -1,0 +1,31 @@
+{
+  "appPadding": {
+    "x": {
+      "base": 14,
+      "large": 5
+    },
+    "y": {
+      "base": 110,
+      "large": 145
+    }
+  },
+  "header": {
+    "base": 50,
+    "large": 75
+  },
+  "nav": {
+    "base": 40
+  },
+  "viewport": {
+    "base": 400,
+    "large": 1024,
+    "medium": 768,
+    "small": 640,
+    "xLarge": 1280,
+    "xSmall": 450,
+    "xxLarge": 1600,
+    "xxxLarge": 1800,
+    "xxxxLarge": 2000,
+    "xxxxxLarge": 3000
+  }
+}

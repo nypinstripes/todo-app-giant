@@ -1,0 +1,112 @@
+.list {
+  margin-bottom: 10px;
+  position: relative;
+  @include float-row;
+  &-grid {
+    margin-top: 12px;
+    max-width: calc(100% - 30px);
+    @include center-x;
+    @include breakpoint($medium) {
+      margin-top: 20px;
+      max-width: none;
+    }
+  }
+  &-info {
+    height: 16px;
+    max-width: calc(100% - 30px);
+    text-align: left;
+    top: -24px;
+    z-index: 2;
+    @include ellipsis;
+    @include float-box;
+    @include font-mass;
+    @include position(absolute, -24px null null 15px);
+  }
+  &-item {
+    backface-visibility: hidden;
+    max-width: 480px;
+    overflow: hidden;
+    outline: none;
+    position: relative;
+    transition: margin 80ms linear 0s;
+    width: 100%;
+    @include center-x;
+    @include breakpoint($medium) {
+      clear: none;
+      margin: 0 6px;
+      max-width: 288px;
+      min-height: 171px;
+      opacity: 0;
+      left: auto;
+      transform: translateX(0);
+      width: 288px;
+    }
+    @include breakpoint($large) {
+      margin: 0 8px;
+    }
+    @include breakpoint($xLarge) {
+      margin: 0 12px;
+    }
+    &:hover {
+      h5 {
+        &::before {
+          @include breakpoint($large) {
+            background-color: white;
+          }
+        }
+      }
+    }
+    &:focus {
+      h5 {
+        &::before {
+          background-color: white;
+        }
+      }
+    }
+    &.expanded {
+      opacity: 0;
+      @include animations(
+        $delay: 50ms,
+        $duration: 400ms,
+        $name: fadeIn,
+        $timing: linear
+      );
+    }
+    &-container {
+      background-color: rgba($boulder, 0.65);
+      backface-visibility: hidden;
+      cursor: pointer;
+      height: auto;
+      margin-bottom: 50px;
+      overflow: hidden;
+      padding-top: calc((100vw - 30px) / (16 / 9));
+      position: relative;
+      transition: opacity 100ms ease-in-out 0s;
+      z-index: 2;
+      @include float-row;
+      @include breakpoint($medium) {
+        padding-top: calc(100% / (16 / 9));
+      }
+    }
+    &-title {
+      bottom: 0;
+      font-weight: 400;
+      top: auto;
+      z-index: 4;
+      @include center-x(absolute);
+      @include size(100% 50px);
+      h5 {
+        cursor: pointer;
+        height: 17px;
+        text-align: center;
+        @include center-xy;
+        @include ellipsis;
+        @include font-mass(0.9rem, 0.9rem, 300);
+        @include hz-underline(white);
+        &::before {
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
