@@ -61,5 +61,3 @@ webpack-assets.json
 
 # npm lock changes
 package-lock.json
-
-yarn.lock
