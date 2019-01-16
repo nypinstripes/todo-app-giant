@@ -27,5 +27,10 @@
     "xxxLarge": 1800,
     "xxxxLarge": 2000,
     "xxxxxLarge": 3000
+  },
+  "well": {
+    "base": 100,
+    "large": 90,
+    "xLarge": 1240
   }
 }

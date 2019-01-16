@@ -22,3 +22,8 @@ $appPaddingX:      #{map-get(map-get($appPadding, x), base)}px;
 $appPaddingXLarge: #{map-get(map-get($appPadding, x), large)}#{'%'};
 $appPaddingY:      #{map-get(map-get($appPadding, y), base)}px;
 $appPaddingYLarge: #{map-get(map-get($appPadding, y), large)}px;
+
+// Content Well
+$wellWidth:       #{map-get($well, base)}#{'%'};
+$wellWidthLarge:  #{map-get($well, large)}#{'%'};
+$wellWidthXLarge: #{map-get($well, xLarge)}px;

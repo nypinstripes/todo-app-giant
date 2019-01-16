@@ -6,7 +6,7 @@
     right: $appPaddingX;
     z-index: 2;
     @include breakpoint($large) {
-      right: $appPaddingXLarge;
+      right: 0;
     }
   }
   &-bar {
@@ -18,17 +18,28 @@
     @include breakpoint($large) {
       top: $headerHeightLarge;
     }
-    > div {
-      height: 100%;
-      @include float-box;
-      @include position(absolute, 0 null);
+    &-container {
+      height: $navHeight;
+      width: $wellWidth;
+      @include center-x;
+      @include breakpoint($large) {
+        max-width: $wellWidthLarge;
+      }
+      @include breakpoint($xLarge) {
+        max-width: $wellWidthXLarge;
+      }
+      > div {
+        height: 100%;
+        @include float-box;
+        @include position(absolute, 0 null);
+      }
     }
   }
   &-tabs {
     left: $appPaddingX;
     z-index: 3;
     @include breakpoint($large) {
-      left: $appPaddingXLarge;
+      left: 0;
     }
   }
   &-tab {

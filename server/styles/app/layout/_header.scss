@@ -7,12 +7,24 @@
   @include breakpoint($medium) {
     height: $headerHeightLarge;
   }
+  &-container {
+    height: $headerHeight;
+    width: $wellWidth;
+    @include center-x;
+    @include breakpoint($large) {
+      height: $headerHeightLarge;
+      max-width: $wellWidthLarge;
+    }
+    @include breakpoint($xLarge) {
+      max-width: $wellWidthXLarge;
+    }
+  }
   &-logo {
     left: $appPaddingX;
     @include center-y;
     @include size(138px 44px);
     @include breakpoint($large) {
-      left: $appPaddingXLarge;
+      left: 0;
     }
     &-text {
       color: white;

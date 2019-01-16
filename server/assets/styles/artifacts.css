@@ -1,3 +1,7 @@
+input, nav, .list-head {
+  display: none;
+}
+
 .page-header-logo {
   color: white;
   text-decoration: none;

@@ -1,0 +1,90 @@
+.todo {
+  &-clear {
+    outline: 0;
+    right: 0;
+    z-index: 4;
+    @include center-y(absolute);
+    @include size(44px);
+    @include breakpoint($large) {
+      @include size(48px);
+    }
+    &:hover {
+      .todo-clear-cross {
+        &::before, &::after {
+          @include breakpoint($medium) {
+            background-color: rgba(red, 0.9);
+          }
+        }
+      }
+    }
+    &:focus, &:active {
+      .todo-clear-cross {
+        &::before, &::after {
+          background-color: rgba(red, 0.9);
+        }
+      }
+    }
+    &-cross {
+      clear: both;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+      transform-origin: 0 0;
+      @include animations($delay: -50ms, $duration: 300ms, $name: explode);
+      @include close($crossColor: $boulder, $size: 18px);
+      @include float-box;
+      @include position(50% null null 50%);
+    }
+  }
+  &-forge {
+    height: 44px;
+    margin-top: 30px;
+    max-width: 490px;
+    width: $wellWidth;
+    @include center-x;
+    @include breakpoint($large) {
+      height: 48px;
+      margin-top: 50px;
+    }
+    &-container {
+      border: edge($mercury);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      @include float-box;
+      @include size(100% 44px);
+      @include breakpoint($large) {
+        height: 48px;
+      }
+      &::before {
+        background-image: linear-gradient(
+          rgba($mercury, 0.35) 0%,
+          rgba(whitesmoke, 0.25) 50%,
+          rgba(whitesmoke, 0.25) 100%
+        );
+        content: '';
+        opacity: 1;
+        transition: opacity 175ms linear 0s;
+        z-index: 2;
+        @include position(absolute, 0);
+        @include size(100%);
+        .active & {
+          opacity: 0;
+        }
+      }
+      input[type='text'] {
+        background-color: argb();
+        padding: 0 44px 0 10px;
+        position: relative;
+        z-index: 3;
+        @include font-mass(1.25rem, 1rem, 300);
+        @include size(100%);
+        @include text-input-placeholder {
+          @include font-mass(1.25rem, 1rem, 300);
+        }
+        @include breakpoint($large) {
+          padding: 0 48px 0 20px;
+        }
+      }
+    }
+  }
+}

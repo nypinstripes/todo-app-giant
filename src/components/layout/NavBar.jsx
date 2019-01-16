@@ -6,25 +6,27 @@ import React from 'react';
 
 const NavBar = props => (
   <nav className="nav-bar" role="Navigation">
-    <div className="nav-tabs" role="Menu">
-      {
-        props.tabs.map(tab => (
-          <Link className={`nav-tab current-${props.page}`}
-            id={`tab-${tab}`}
-            key={uniqKey()}
-            role="Menuitem"
-            tabIndex="0"
-            title={`${tab} todos`}
-            to={`/${tab}`}
-          >
-            <span>{tab}</span>
-          </Link>
-        ))
-      }
-    </div>
-    <div className="nav-actions">
-      <div className="nav-action button" role="Button" tabIndex="0">
-        <span className="button-text">Archive All Completed</span>
+    <div className="nav-bar-container">
+      <div className="nav-tabs" role="Menu">
+        {
+          props.tabs.map(tab => (
+            <Link className={`nav-tab current-${props.page}`}
+              id={`tab-${tab}`}
+              key={uniqKey()}
+              role="Menuitem"
+              tabIndex="0"
+              title={`${tab} todos`}
+              to={`/${tab}`}
+            >
+              <span>{tab}</span>
+            </Link>
+          ))
+        }
+      </div>
+      <div className="nav-actions">
+        <div className="nav-action button" role="Button" tabIndex="0">
+          <span className="button-text">Archive All Completed</span>
+        </div>
       </div>
     </div>
   </nav>

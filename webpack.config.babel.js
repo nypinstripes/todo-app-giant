@@ -89,7 +89,7 @@ const config = env => {
         chunkOrigins: false,
         colors: true,
         depth: false,
-        entrypoints: false,
+        entrypoints: true,
         errors: true,
         errorDetails: true,
         hash: false,

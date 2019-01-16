@@ -1,12 +1,14 @@
 input {
   &[type='text'] {
+    color: $boulder;
     background-origin: border-box;
     font-weight: 400;
     outline: none;
     text-shadow: 0 0 0 argb();
     @include text-input-placeholder {
+      color: $silver;
       margin-bottom: 0;
-      @include font-mass(0.8rem);
+      @include font-mass;
     }
     @include moz-placeholder(3.85rem);
     &[disabled] {

@@ -1,67 +1,104 @@
 .list {
   margin-bottom: 10px;
   position: relative;
-  @include float-row;
-  &-grid {
-    margin-top: 12px;
-    max-width: calc(100% - 30px);
+  width: $wellWidth;
+  @include center-x;
+  @include breakpoint($large) {
+    max-width: $wellWidthLarge;
+  }
+  @include breakpoint($xLarge) {
+    max-width: $wellWidthXLarge;
+  }
+  .todos & {
+    margin-top: 20px;
+    @include breakpoint($large) {
+      margin-top: 24px;
+    }
+  }
+  &-action {
+    height: 20px;
+    margin-left: 6px;
+    outline: 0;
+    position: relative;
+    @include float-box;
+    &:first-child {
+      margin: 0;
+    }
+    > span {
+      color: $dodgerBlue;
+      cursor: pointer;
+      height: 10px;
+      transition: color 150ms ease 0s;
+      @include center-y;
+      @include font-mass(0.625rem, 0.5rem, 800);
+      @include hz-underline($dodgerBlue);
+      &::before {
+        bottom: 0;
+      }
+    }
+  }
+  &-actions, &-info {
+    clear: both;
+    min-height: 16px;
+    text-align: left;
+    @include float-box;
+    @include breakpoint($large) {
+      clear: none;
+    }
+  }
+  &-actions {
+    margin-top: 8px;
+    @include breakpoint($large) {
+      margin-top: 0;
+    }
+  }
+  &-grid, &-head {
+    width: $wellWidth;
     @include center-x;
+    @include breakpoint($large) {
+      max-width: $wellWidthLarge;
+    }
+    @include breakpoint($xLarge) {
+      max-width: $wellWidthXLarge;
+    }
+  }
+  &-grid {
     @include breakpoint($medium) {
-      margin-top: 20px;
-      max-width: none;
+
+    }
+  }
+  &-head {
+    padding: $appPaddingX;
+    @include breakpoint($large) {
+      padding: 0;
     }
   }
   &-info {
-    height: 16px;
-    max-width: calc(100% - 30px);
-    text-align: left;
-    top: -24px;
-    z-index: 2;
-    @include ellipsis;
-    @include float-box;
+    color: $boulder;
+    transition: color 100ms ease-in 0s;
     @include font-mass;
-    @include position(absolute, -24px null null 15px);
+    @include breakpoint($large) {
+      margin-right: 6px;
+    }
   }
   &-item {
     backface-visibility: hidden;
-    max-width: 480px;
+    border-bottom: edge($mercury);
     overflow: hidden;
     outline: none;
     position: relative;
-    transition: margin 80ms linear 0s;
-    width: 100%;
-    @include center-x;
+    @include float-row;
     @include breakpoint($medium) {
-      clear: none;
-      margin: 0 6px;
-      max-width: 288px;
-      min-height: 171px;
-      opacity: 0;
-      left: auto;
-      transform: translateX(0);
-      width: 288px;
+
     }
     @include breakpoint($large) {
-      margin: 0 8px;
-    }
-    @include breakpoint($xLarge) {
-      margin: 0 12px;
+
     }
     &:hover {
-      h5 {
-        &::before {
-          @include breakpoint($large) {
-            background-color: white;
-          }
-        }
-      }
+
     }
     &:focus {
-      h5 {
-        &::before {
-          background-color: white;
-        }
-      }
+
     }
     &.expanded {
       opacity: 0;
@@ -73,39 +110,16 @@
       );
     }
     &-container {
-      background-color: rgba($boulder, 0.65);
       backface-visibility: hidden;
-      cursor: pointer;
-      height: auto;
-      margin-bottom: 50px;
-      overflow: hidden;
-      padding-top: calc((100vw - 30px) / (16 / 9));
-      position: relative;
-      transition: opacity 100ms ease-in-out 0s;
-      z-index: 2;
       @include float-row;
+      @include size(100% auto);
       @include breakpoint($medium) {
         padding-top: calc(100% / (16 / 9));
       }
     }
     &-title {
-      bottom: 0;
-      font-weight: 400;
-      top: auto;
-      z-index: 4;
-      @include center-x(absolute);
-      @include size(100% 50px);
       h5 {
-        cursor: pointer;
-        height: 17px;
-        text-align: center;
-        @include center-xy;
-        @include ellipsis;
-        @include font-mass(0.9rem, 0.9rem, 300);
-        @include hz-underline(white);
-        &::before {
-          bottom: 0;
-        }
+        text-align: left;
       }
     }
   }
