@@ -1,0 +1,8 @@
+input, use, .empty-msg > *, .list-head, .nav-action, .nav-tab, .not-found {
+  display: none;
+}
+
+.page-header-logo {
+  color: white;
+  text-decoration: none;
+}
