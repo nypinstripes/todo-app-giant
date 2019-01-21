@@ -39,7 +39,6 @@ class Todos extends Component {
       type: nextType
     } = nextProps;
 
-
     if (nextTodos && (todos.length !== nextTodos.length || type !== nextType)) {
       this.syncTodos({
         todos: nextTodos,
@@ -81,12 +80,9 @@ class Todos extends Component {
   }
 
   render() {
-    const { type } = this.props;
-    const { listItems } = this.state;
-
     return (
       <div className="todos page-root">
-        <ListHead type={type} />
+        <ListHead type={this.props.type} />
         <TodoForge />
         { this.getListItems() }
       </div>
@@ -103,8 +99,12 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  setTodos() { dispatch(setTodos()); },
-  setTodosUpdated(params) { dispatch(setTodosUpdated(params)); }
+  setTodos() {
+    dispatch(setTodos());
+  },
+  setTodosUpdated(params) {
+    dispatch(setTodosUpdated(params));
+  }
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Todos));

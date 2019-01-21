@@ -14,16 +14,11 @@ class CheckControl extends Component {
   }
 
   state = {
-    checkActive: false,
-    toggledTimeout: null
+    checkActive: false
   }
 
   componentWillMount() {
     this.setState({ checkActive: this.props.active });
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.state.toggledTimeout);
   }
 
   getCheckMode = () => {
@@ -34,12 +29,11 @@ class CheckControl extends Component {
   }
 
   onCheckKeyDown = e => {
-    const { keyDown } = this.props;
+    const { disabled, keyDown } = this.props;
 
     if (e.keyCode !== 9) e.preventDefault();
     if (e.keyCode === 13 || e.keyCode === 32) {
-      this.checkLabel.click();
-      keyDown(e);
+      if (!disabled) keyDown(e);
     }
 
     if (e.keyCode === 27) this.checkControl.blur();

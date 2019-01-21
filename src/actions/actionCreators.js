@@ -39,6 +39,12 @@ export const setAllTodosUpdated = params => {
   };
 };
 
+export const setScrollBarOffset = payload => {
+  return async dispatch => {
+    return await dispatch({ payload, type: SET_SCROLLBAR_OFFSET });
+  };
+};
+
 export const setTodoCreated = payload => {
   return async dispatch => {
     return await dispatch({ payload, type: SET_TODO_CREATED });
@@ -57,9 +63,18 @@ export const setTodoDeleted = params => {
   };
 };
 
-export const setScrollBarOffset = payload => {
+export const setTodoUpdated = params => {
   return async dispatch => {
-    return await dispatch({ payload, type: SET_SCROLLBAR_OFFSET });
+    try {
+      const payload = await updateTodo(params);
+
+      if (payload) {
+        await dispatch({ payload, type: SET_TODOS });
+        await dispatch(setTodosUpdated(true));
+      }
+    } catch(err) {
+      console.log(err);
+    }
   };
 };
 
@@ -73,19 +88,6 @@ export const setTodos = () => async dispatch => {
   }
 };
 
-export const setTodoUpdated = params => {
-  return async dispatch => {
-    try {
-      const payload = await updateTodo(params);
-
-      await dispatch({ payload, type: SET_TODOS });
-      await dispatch(setTodosUpdated(true));
-
-    } catch(err) {
-      console.log(err);
-    }
-  };
-};
 
 export const setTodosUpdated = payload => {
   return async dispatch => {

@@ -12,9 +12,6 @@ class ListInfo extends Component {
     const { todos } = this.props;
     const { todos: nextTodos } = nextProps;
 
-    console.log(todos);
-    console.log(nextTodos);
-
     return todos.length !== nextTodos;
   }
 

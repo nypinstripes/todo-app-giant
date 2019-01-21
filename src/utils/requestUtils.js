@@ -10,7 +10,6 @@ export const setRequestOptions = params => {
   };
 
   if ('PATCH POST PUT'.indexOf(method) !== -1) {
-    console.log(method);
     options.body = JSON.stringify(data);
   }
 
