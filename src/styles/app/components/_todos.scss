@@ -1,0 +1,226 @@
+.todo {
+  padding: 0 calc(#{$targetSize} * 2) 0 $targetSize;
+  @include transitions($duration: 100ms, $property: border, $timing: ease);
+  @include breakpoint($large) {
+    padding: 0 5.6% 0 8.6%;
+  }
+  &.archived {
+    box-shadow:
+      inset 0 -5px 30px -15px white,
+      inset 0 5px 30px -15px white;
+    @include backgrounds(
+      $color: rgba($mercury, 0.5),
+      $image: repeating-linear-gradient(
+        45deg,
+        argb(),
+        argb() 2px,
+        rgba($mercury, 0.3) 2px,
+        rgba($mercury, 0.3) 4px
+      )
+    );
+    @include breakpoint($large) {
+      box-shadow:
+        inset 0 -5px 30px -2px rgba(white, 0.75),
+        inset 0 5px 30px -2px rgba(white, 0.75);
+    }
+  }
+  &.deleted {
+    border: edge($size: 0);
+    @include animations(
+      $duration: 300ms,
+      $name: collapseY,
+      $timing: ease-in
+    );
+  }
+  &-archive, &-clear, &-complete {
+    outline: 0;
+    transition: opacity 150ms ease 0s;
+    z-index: 2;
+    @include position(absolute, 8px null null null);
+    @include float-box;
+    @include size(calc(#{$targetSize}));
+    @include breakpoint($large) {
+      top: 23px;
+    }
+    .deleted & {
+      opacity: 0;
+    }
+  }
+  &-archive {
+    cursor: pointer;
+    right: $targetSize;
+    @include breakpoint($large) {
+      margin-left: 11px;
+      @include position(35px auto null null)
+      @include size(auto 21px);
+    }
+    &-box {
+      @include center-xy;
+      @include size(18px);
+      use {
+        stroke: $boulder;
+        stroke-width: 4px;
+        transition: stroke 175ms ease-in 0s;
+        .archived & {
+          stroke: $islamicGreen;
+        }
+      }
+    }
+  }
+  &-clear {
+    right: 0;
+    z-index: 4;
+    @include breakpoint($large) {
+      right: 12px;
+    }
+    &:hover {
+      [class$='-cross'] {
+        &::before, &::after {
+          @include breakpoint($medium) {
+            background-color: rgba(red, 0.9);
+          }
+        }
+      }
+    }
+    &:focus, &:active {
+      [class$='-cross'] {
+        &::before, &::after {
+          background-color: rgba(red, 0.9);
+        }
+      }
+    }
+    &-cross {
+      transform-origin: 0 0;
+      @include center-xy;
+      @include close($crossColor: $boulder, $size: 18px);
+      @include float-box;
+      .todo-forge & {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+        @include animations($delay: -50ms, $duration: 300ms, $name: explode);
+      }
+    }
+  }
+  &-complete {
+    left: 0;
+    @include breakpoint($large) {
+      left: 9px;
+    }
+  }
+  &-created {
+    height: 12px;
+    opacity: 0;
+    z-index: 3;
+    @include font-mass(0.875rem, 1rem);
+    @include position(absolute, null null -20px 10px);
+    @include animations($duration: 300ms, $name: fadeIn);
+    &.error {
+      color: red;
+    }
+    &.success {
+      color: $islamicGreen;
+    }
+  }
+  &-forge {
+    height: $targetSize;
+    max-width: 490px;
+    width: $wellWidth;
+    @include center-x;
+    @include breakpoint($large) {
+      height: 48px;
+      margin-top: 50px;
+    }
+    &-container {
+      border: edge($mercury);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      transiton: height 300ms ease-in 0s;
+      @include float-box;
+      @include size(100% calc(#{$targetSize}));
+      @include breakpoint($large) {
+        height: 48px;
+      }
+      &::before {
+        background-image: linear-gradient(
+          rgba($mercury, 0.35) 0%,
+          rgba(whitesmoke, 0.25) 50%,
+          rgba(whitesmoke, 0.25) 100%
+        );
+        content: '';
+        opacity: 1;
+        transition: opacity 175ms linear 0s;
+        z-index: 2;
+        @include position(absolute, 0);
+        @include size(100%);
+        .active & {
+          opacity: 0;
+        }
+      }
+      .todo-clear {
+        right: 0;
+        @include center-y(absolute);
+        @include breakpoint($large) {
+          @include size(48px);
+        }
+      }
+      input[type='text'] {
+        padding: 0 $targetSize 0 14px;
+        position: relative;
+        z-index: 3;
+        @include font-mass(1.25rem, 1rem, 300);
+        @include size(100%);
+        @include text-input-placeholder {
+          @include font-mass(1.25rem, 1rem, 300);
+        }
+        @include breakpoint($large) {
+          padding: 0 48px 0 20px;
+        }
+      }
+    }
+  }
+  &-title {
+    display: inline-table;
+    float: left;
+    min-height: 60px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    @include breakpoint($large) {
+      max-width: calc(100% - 75px);
+      min-height: 90px;
+      width: auto;
+    }
+    .archived & {
+      max-width: calc(100% - 87px);
+    }
+    &-container {
+      display: table-cell;
+      padding: 8px 0;
+      vertical-align: middle;
+    }
+    h4 {
+      clear: both;
+      color: $boulder;
+      display: table-row;
+      float: left;
+      min-height: 22px;
+      text-align: left;
+      vertical-align: middle;
+      @include font-mass(0.9375rem, 1.4rem);
+      @include breakpoint($large) {
+        @include font-mass(1.375rem, 1.65rem);
+      }
+      .completed & {
+        color: $mercury;
+        text-decoration: line-through;
+      }
+      .deleted & {
+        color: argb();
+      }
+    }
+  }
+  .check-target {
+    @include size(18px);
+  }
+}

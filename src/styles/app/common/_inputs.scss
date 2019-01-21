@@ -1,0 +1,102 @@
+input {
+  &[type='text'] {
+    color: $boulder;
+    font-weight: 400;
+    outline: none;
+    text-shadow: 0 0 0 argb();
+    @include backgrounds;
+    @include transitions($property: color)
+    @include text-input-placeholder {
+      color: $silver;
+      margin-bottom: 0;
+      @include font-mass;
+      @include transitions($property: color)
+    }
+    @include moz-placeholder(3.85rem);
+    &[disabled] {
+      border-radius: 0;
+      color: rgba($boulder, 0.8);
+      @include text-input-placeholder {
+        color: rgba($silver, 0.35);
+      }
+    }
+    &:-webkit-autofill {
+      box-shadow: inset 0 0 5000px 100px white;
+      @include backgrounds(
+        $color: white,
+        $repeat: repeat,
+        $size: cover,
+        $xPos: 0,
+        $yPos: 0
+      );
+      @include transitions($duration: 5000ms, $property: box-shadow);
+    }
+    &.inline-input {
+      @include float-box;
+      @include font-mass;
+    }
+    &.locked {
+      background: rgba($mercury, 0.8);
+      box-shadow: inset 0 0 0 0 argb();
+      color: rgba(black, 0.5);
+    }
+  }
+}
+
+.check {
+  &-control {
+    @include size(calc(#{$targetSize}));
+    &:focus {
+      .check-target {
+        box-shadow: 0 0 8px 0 $boulder;
+      }
+    }
+    &:active {
+      .check-target {
+        box-shadow: 0 0 10px -8px $boulder;
+      }
+    }
+    label {
+      cursor: pointer;
+      outline: 0;
+      position: relative;
+      @include float-box;
+      @include size(100%);
+    }
+    input {
+      opacity: 0;
+      @include tinify;
+      &:checked {
+        & + label {
+          use {
+            stroke-dashoffset: 0;
+            stroke-opacity: 1;
+          }
+        }
+      }
+    }
+    use {
+      fill: argb();
+      stroke: $islamicGreen;
+      stroke-opacity: 0;
+      stroke-width: 5px;
+      stroke-dasharray: 215.76486206054688;
+      stroke-dashoffset: 214;
+      transform: scale(2.05);
+      transform-origin: 25% 84%;
+      transition: stroke-dashoffset 200ms ease 0s;
+    }
+  }
+  &-target {
+    background-image: radial-gradient(
+      white 0%,
+      whitesmoke 50%,
+      rgba($silver, 0.5) 100%
+    );
+    border: edge($color: rgba($silver, 0.9), $style: dashed);
+    box-shadow: 0 0 0 0 argb();
+    transition: box-shadow 150ms ease 0s;
+    @include center-xy(absolute);
+    @include size(1rem);
+  }
+}

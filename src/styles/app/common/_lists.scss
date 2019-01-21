@@ -1,0 +1,110 @@
+.list {
+  margin-bottom: 10px;
+  position: relative;
+  width: $wellWidth;
+  @include center-x;
+  @include breakpoint($large) {
+    max-width: $wellWidthLarge;
+  }
+  @include breakpoint($xLarge) {
+    max-width: $wellWidthXLarge;
+  }
+  .todos & {
+    margin-top: 20px;
+    @include breakpoint($large) {
+      margin-top: 24px;
+    }
+  }
+  &-action {
+    height: 10px;
+    margin-left: 6px;
+    outline: 0;
+    position: relative;
+    @include float-box;
+    @include breakpoint($large) {
+      height: 20px;
+    }
+    &:focus, &:active {
+      > span {
+        &::before {
+          background-color: $dodgerBlue;
+        }
+      }
+    }
+    &:first-child {
+      margin: 0;
+    }
+    > span {
+      color: $dodgerBlue;
+      cursor: pointer;
+      height: 11px;
+      transition: color 150ms ease 0s;
+      @include center-y;
+      @include font-mass(0.6875rem, 0.5rem, 800);
+      @include hz-underline($dodgerBlue);
+      &::before {
+        bottom: 0;
+      }
+    }
+  }
+  &-actions, &-info {
+    clear: both;
+    text-align: left;
+    @include float-box;
+    @include breakpoint($large) {
+      clear: none;
+      min-height: 1rem;
+    }
+  }
+  &-actions {
+    margin-top: 14px;
+    @include breakpoint($large) {
+      margin-top: 0;
+    }
+  }
+  &-head {
+    padding: $appPaddingX;
+    width: $wellWidth;
+    @include center-x;
+    @include breakpoint($large) {
+      max-width: $wellWidthLarge;
+      padding: 0;
+    }
+    @include breakpoint($xLarge) {
+      max-width: $wellWidthXLarge;
+    }
+  }
+  &-info {
+    color: $boulder;
+    transition: color 100ms ease-in 0s;
+    @include font-mass;
+    @include breakpoint($large) {
+      margin-right: 6px;
+    }
+  }
+  &-item {
+    backface-visibility: hidden;
+    border-bottom: edge($mercury);
+    overflow: hidden;
+    outline: none;
+    position: relative;
+    @include float-row;
+    &:last-child {
+      border-bottom-color: argb();
+    }
+    &.expanded {
+      opacity: 0;
+      @include animations(
+        $delay: 50ms,
+        $duration: 400ms,
+        $name: fadeIn,
+        $timing: linear
+      );
+    }
+    &-container {
+      backface-visibility: hidden;
+      height: auto;
+      @include float-row;
+    }
+  }
+}

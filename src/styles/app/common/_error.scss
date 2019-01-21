@@ -1,0 +1,53 @@
+.not-found {
+  clear: both;
+  margin-top: 30px;
+  width: 100%;
+  @include center-x;
+  @include breakpoint($medium) {
+    @include size(668px 400px);
+  }
+  &-icon, h1, p {
+    @include center-x;
+  }
+  &-icon {
+    margin-top: 18px;
+    @include size(320px);
+    @include breakpoint($medium) {
+      @include size(410px);
+    }
+    .icon-gear {
+      transform: rotate(0deg);
+      transform-origin: 50% 50%;
+      will-change: transform;
+      @include position(absolute, 0);
+      @include animations(
+        $count: infinite,
+        $duration: 3s,
+        $name: gearSpin,
+        $timing: linear
+      );
+      &:nth-child(1) {
+        animation-duration: 4s;
+        margin: 10% 0 0 -20%;
+        z-index: 2;
+        @include size(110%);
+      }
+      &:nth-child(2) {
+        animation-direction: reverse;
+        margin: -20% 0 0 30%;
+        z-index: 3;
+        @include size(90%);
+      }
+      use {
+        fill: $dodgerBlue;
+      }
+    }
+  }
+  h1 {
+    @include font-mass($size: 1.5rem, $weight: 700);
+  }
+  p {
+    margin-top: 40px;
+    @include font-mass(1.35rem, 1.1rem);
+  }
+}

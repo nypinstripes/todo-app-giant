@@ -1,0 +1,76 @@
+@keyframes collapseY {
+  100% {
+    max-height: 0;
+  }
+}
+
+@keyframes explode {
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gearBounce {
+  0%, 10% {
+    bottom: 50%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes gearSpin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes horizontalReset {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes roadBumps {
+  0% {
+    right: -20%;
+  }
+  100% {
+    right: 110%;
+  }
+}
+
+@keyframes scaleIn {
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes strokeDash {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes strokeArray {
+  100% {
+    stroke-dasharray: 0;
+  }
+}
