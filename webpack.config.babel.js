@@ -3,6 +3,7 @@ import { join, resolve } from 'path';
 import chalk from 'chalk';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import jsonImporter from 'node-sass-json-importer';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import webpack from 'webpack';
@@ -23,6 +24,7 @@ const config = env => {
     useShortDoctype: true,
     showErrors: true
   };
+
   const mode = ifProd('production', 'development');
   const progress = {
     bar: chalk.green(':bar'),
@@ -47,6 +49,7 @@ const config = env => {
     }
   };
 
+  let sourceMap = !ifProd();
   let ua = {
     chrome: 'Chrome/65.0.3325.162',
     safari: 'Safari/537.36',
@@ -60,7 +63,6 @@ const config = env => {
   const configVars = {
     baseUrl: JSON.stringify('/'),
     host: JSON.stringify('build'),
-    originalUrl: JSON.stringify('/'),
     'process.env.NODE_ENV': JSON.stringify(mode),
     tagOptions: false,
     uaName: JSON.stringify(agent)
@@ -87,7 +89,7 @@ const config = env => {
         chunkOrigins: false,
         colors: true,
         depth: false,
-        entrypoints: false,
+        entrypoints: true,
         errors: true,
         errorDetails: true,
         hash: false,
@@ -118,6 +120,7 @@ const config = env => {
         },
         {
           test: /\.json$/,
+          include: '/shared/data',
           loader: 'json-loader'
         },
         {
@@ -145,15 +148,18 @@ const config = env => {
           loaders: [
             {
               loader: 'style-loader',
-              options: { sourceMap: !ifProd() }
+              options: { sourceMap }
             },
             {
               loader: 'css-loader',
-              options: { sourceMap: !ifProd() }
+              options: { sourceMap }
             },
             {
               loader: 'sass-loader',
-              options: { sourceMap: !ifProd() }
+              options: {
+                importer: jsonImporter(),
+                sourceMap
+              }
             }
           ]
         }
