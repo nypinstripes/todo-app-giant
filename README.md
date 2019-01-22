@@ -203,7 +203,7 @@ _Snapshots are generated using the jest testing library, at present there are on
 #### Todos
 
 <p align="center">
-  <img valign="top" src="https://cl.ly/02b84a1b6bd2/Screen%252520Recording%2525202019-01-22%252520at%25252008.04%252520AM.gif" alt="404" />
+  <img width="100%" valign="top" src="https://cl.ly/02b84a1b6bd2/Screen%252520Recording%2525202019-01-22%252520at%25252008.04%252520AM.gif" alt="404" />
 </p>
 
 ### Pages
@@ -211,20 +211,20 @@ _Snapshots are generated using the jest testing library, at present there are on
 ##### &nbsp;&nbsp;&nbsp;404
 
 <p align="left">
-  <img valign="top" src="https://cl.ly/c9ffa315ccf6/Screen%252520Recording%2525202019-01-22%252520at%25252008.06%252520AM.gif" alt="404" />
+  <img width="100%" valign="top" src="https://cl.ly/c9ffa315ccf6/Screen%252520Recording%2525202019-01-22%252520at%25252008.06%252520AM.gif" alt="404" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;All
 
 <p align="left">
-  <img valign="top" src="https://cl.ly/1ec568f2e506/all-mobile.png" />
+  <img width="33%" valign="top" src="https://cl.ly/1ec568f2e506/all-mobile.png" />
   <img width="66%" valign="top" src="https://cl.ly/f82ea1ee87bc/all.png" alt="favorites" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Active
 
 <p align="left">
-  <img valign="top" src="https://cl.ly/de1ab4fce577/active-mobile.png" />
+  <img width="33%" valign="top" src="https://cl.ly/de1ab4fce577/active-mobile.png" />
   <img width="66%" valign="top" src="https://cl.ly/8eb8ede8737f/active.png" alt="favorites" />
 </p>
 
@@ -232,21 +232,21 @@ _Snapshots are generated using the jest testing library, at present there are on
 ##### &nbsp;&nbsp;&nbsp;Completed
 
 <p align="left">
-  <img valign="top" src="https://cl.ly/c6a39a3f776a/completed.png" />
+  <img width="33%" valign="top" src="https://cl.ly/c6a39a3f776a/completed.png" />
   <img width="66%" valign="top" src="https://cl.ly/eed309db20b2/%255B9057039525aed3b6f7c330cafc696deb%255D_completed-mobile.png" alt="favorites" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Archived
 
 <p align="left">
-  <img valign="top" src="https://cl.ly/c0756cbd72cd/archived-mobile.png" />
+  <img width="33%" valign="top" src="https://cl.ly/c0756cbd72cd/archived-mobile.png" />
   <img width="66%" valign="top" src="https://cl.ly/4c8719d0b510/%255B5bb282b8ee68bfcc2c7df03c31c058d0%255D_archived.png" alt="favorites" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Unsupported Browsers
 
 <p align="left">
-  <img width="66%" valign="top" src="https://cl.ly/aa1f17e9e4b2/%255B807d61821aff687975b7e920ae1ce28a%255D_unsupported.png" alt="favorites" />
+  <img width="100%" valign="top" src="https://cl.ly/aa1f17e9e4b2/%255B807d61821aff687975b7e920ae1ce28a%255D_unsupported.png" alt="favorites" />
 </p>
 
 
