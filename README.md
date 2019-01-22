@@ -20,7 +20,6 @@
 <h2></h2>
 
 1. [Setting up MyTodos](#setting-up-mytodos)
-1. [Specifications Checklist](#specifications-checklist)
 1. [Application Architecture](#application-architecture)
 1. [Pages & Previews](#pages-&-previews)
 1. [Todos](#todos)
@@ -91,23 +90,6 @@ There are a few ways to run the MyTodos test suite. Presently, only tests for re
 * `yarn/npm test:update` to execute the test suite in single run mode & update Jest snapshots that have changed.
 * `yarn/npm test:watch` to execute the test suite in constant watch mode & update Jest snapshots as they're changed.
 * `yarn/npm test:coverage` to view code coverage (lcov) & render performance reports using the built-in react tool (formerly Istanbul).
-
-<h2></h2>
-
-<a name="specifications-checklist"></a>
-## Specifications Checklist
-
-- [x] The app serves a page consisting of a simple form with a text field and a button.
-- [x] When the user enters text, use Javascript to request some GIFs from the Giphy API.
-- [x] A user can click a GIF to add it to their "favorites".
-- [x] A user can view another page which displays their favorite GIFs.
-- [x] The GIPHY url used in the async operations, appears as `https://api.giphy.com/v1/gifs/search` with query params, api_key & q.
-- [x] Use of the latest ES2017 (ES6) JS standard throughout the app.
-- [x] Follow React, JSX, SASS, SVG, SSR & Accessibility Patterns, Best Practices & Platform Conventions.
-- [x] Careful attention payed to UI/UX details, including responsive layout paradigms for use on multiple sized devices.
-- [x] Install dependencies on `yarn/npm install`.
-- [x] Build App & Start Server on `http://localhost:3000/` with `yarn launch` or `npm start`.
-- [x] Have Fun doing what we do best.
 
 <h2></h2>
 
