@@ -115,7 +115,7 @@
     @include position(absolute, null null -20px 10px);
     @include animations($duration: 300ms, $name: fadeIn);
     @include breakpoint($large) {
-      bottom: -15px;
+      bottom: -20px;
     }
     &.error {
       color: red;

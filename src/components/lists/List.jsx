@@ -1,5 +1,4 @@
 import { array, func, object, string, number } from 'prop-types';
-import { uniqKey } from '../../utils/helperUtils';
 import Empty from '../tools/Empty';
 import React, { Component } from 'react';
 
@@ -18,7 +17,7 @@ class List extends Component {
     if (listItems.length === 0) return <Empty emptyType={emptyType} />;
 
     return listItems.map(item => (
-      <ListItem key={`list-item-${uniqKey()}`}
+      <ListItem key={`list-item-${item.id}`}
         item={item}
         type={type}
         winW={winW}

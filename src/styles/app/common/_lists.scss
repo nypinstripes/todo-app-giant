@@ -12,7 +12,7 @@
   .todos & {
     margin-top: 20px;
     @include breakpoint($large) {
-      margin-top: 24px;
+      margin-top: 26px;
     }
   }
   &-action {

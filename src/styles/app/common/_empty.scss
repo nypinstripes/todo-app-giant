@@ -3,7 +3,7 @@
   min-height: 200px;
   opacity: 0;
   width: 100%;
-  @include animations($delay: 3s, $name: fadeIn, $timing: linear);
+  @include animations($delay: 2s, $name: fadeIn, $timing: linear);
   @include center-x;
   @include breakpoint($medium) {
     @include size(668px 400px);

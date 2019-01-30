@@ -2,8 +2,9 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const helpers = require('../utils/helperUtils');
 const getItemArrayIndex = helpers.getItemArrayIndex;
+const uniqKey = helpers.uniqKey;
 const router = express.Router();
-const todos = require('../data');
+const todos = [];
 
 router.use(bodyParser.json());
 
@@ -27,8 +28,11 @@ router.post('/', (req, res, next) => {
 
   if (!text) res.status(400).send({ message: 'text is required' });
 
-  const id = todos.length + 1;
-  const newTodo = { id, text, status: 'active' };
+  const newTodo = {
+    id: uniqKey(),
+    status: 'active',
+    text
+  };
 
   todos.push(newTodo);
   res.status(201).json(todos);

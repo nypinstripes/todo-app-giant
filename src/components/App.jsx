@@ -16,19 +16,22 @@ class App extends Component {
     setScrollBarOffset: func
   }
 
-  state = { winW: 0 }
+  state = {
+    winW: 0
+  }
 
   componentWillMount() {
     this.setWindowWidth();
   }
 
   componentDidMount() {
-    this.setScrollOffset();
     window.addEventListener('resize', this.setWindowWidth);
+    document.addEventListener('DOMContentLoaded', this.setScrollOffset);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.setWindowWidth);
+    document.removeEventListener('DOMContentLoaded', this.setScrollOffset);
   }
 
   getPageName = () => {
@@ -50,9 +53,12 @@ class App extends Component {
   getScrollOffset = () => this.props.scrollOffset > 0 ? ' offset-scroll' : '';
 
   setScrollOffset = () => {
-    const offset = window.innerWidth - this.appEl.clientWidth;
+    const offset = document.body.getAttribute('data-offset');
 
-    if (offset) this.props.setScrollBarOffset(parseInt(offset));
+    if (offset) {
+      this.props.setScrollBarOffset(parseInt(offset));
+      document.removeEventListener('DOMContentLoaded', this.setScrollOffset);
+    }
   }
 
   setWindowWidth = () => this.setState({ winW: window.innerWidth })
