@@ -18,7 +18,11 @@ class List extends Component {
     if (listItems.length === 0) return <Empty emptyType={emptyType} />;
 
     return listItems.map(item => (
-      <ListItem key={`list-item-${uniqKey()}`} item={item} type={type} winW={winW} />
+      <ListItem key={`list-item-${uniqKey()}`}
+        item={item}
+        type={type}
+        winW={winW}
+      />
     ));
   }
 
