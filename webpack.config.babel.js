@@ -6,6 +6,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import jsonImporter from 'node-sass-json-importer';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
+import shapes from './shared/data/svg.json';
 import webpack from 'webpack';
 import WebpackCleanupPlugin from 'webpack-cleanup-plugin';
 
@@ -64,6 +65,7 @@ const config = env => {
     baseUrl: JSON.stringify('/'),
     host: JSON.stringify('build'),
     'process.env.NODE_ENV': JSON.stringify(mode),
+    shapes: JSON.stringify(shapes),
     tagOptions: false,
     uaName: JSON.stringify(agent)
   };

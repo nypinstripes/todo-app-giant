@@ -2,17 +2,21 @@ const express = require('express');
 const helpers = require('../utils/helperUtils');
 const isBrowserSupported = helpers.isBrowserSupported;
 const router = express.Router();
+const shapes = require('../../shared/data/svg');
 const UAParser = require('ua-parser-js');
 
 router.get('/', (req, res, next) => {
   const { headers: { 'user-agent': agent }} = req;
   let parser = UAParser(agent);
+  let view = 'index';
+  let locals = { shapes };
 
   if (!isBrowserSupported(parser)) {
-    return res.render('unsupported', { unsupported: true });
+    locals.unsupported = true;
+    view = 'unsupported';
   }
 
-  res.render('index');
+  res.render(view, locals);
 });
 
 module.exports = router;
