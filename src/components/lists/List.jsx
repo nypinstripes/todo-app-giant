@@ -26,7 +26,11 @@ class List extends Component {
   }
 
   render() {
-    return <div className="list">{this.getListItems()}</div>;
+    return (
+      <div aria-live="polite" className="list" role="List">
+        { this.getListItems() }
+      </div>
+    );
   }
 }
 
