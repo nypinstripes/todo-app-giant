@@ -1,4 +1,4 @@
-import { array, func, object, string, number } from 'prop-types';
+import { array, func, number, object, string } from 'prop-types';
 import Empty from '../tools/Empty';
 import React, { Component } from 'react';
 
