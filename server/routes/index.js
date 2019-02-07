@@ -1,6 +1,6 @@
 const agents = require('../../shared/data/browsers');
 const express = require('express');
-const helpers = require('../utils/helperUtils');
+const helpers = require('../utils/index');
 const isBrowserSupported = helpers.isBrowserSupported;
 const router = express.Router();
 const shapes = require('../../shared/data/svg');

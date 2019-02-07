@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const helpers = require('../utils/helperUtils');
+const helpers = require('../utils/index');
 const getItemArrayIndex = helpers.getItemArrayIndex;
 const uniqKey = helpers.uniqKey;
 const router = express.Router();

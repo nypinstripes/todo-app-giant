@@ -1,4 +1,4 @@
-import { setRequestOptions } from '../utils/requestUtils';
+import { setRequestOptions } from '../utils';
 import { setTodoCreated } from './actionCreators';
 
 export const deleteTodo = async params => {

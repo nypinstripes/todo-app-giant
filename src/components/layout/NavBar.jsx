@@ -2,7 +2,7 @@ import { array, func, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import { setAllTodosUpdated } from '../../actions/actionCreators';
-import { uniqKey } from '../../utils/helperUtils';
+import { uniqKey } from '../../utils';
 import React, { Component } from 'react';
 
 class NavBar extends Component {

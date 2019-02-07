@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { getBasicReducer } from '../utils/helperUtils';
+import { getBasicReducer } from '../utils';
 import {
   SET_SCROLLBAR_OFFSET,
   SET_TODO_CREATED,
