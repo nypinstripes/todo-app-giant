@@ -90,13 +90,10 @@ class Todos extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state);
-  return {
-    todos: state.todos ? state.todos : [],
-    todosUpdated: state.todosUpdated ? state.todosUpdated : false
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  todos: state.todos ? state.todos : [],
+  todosUpdated: state.todosUpdated ? state.todosUpdated : false
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setTodos() {
