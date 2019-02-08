@@ -62,7 +62,7 @@ class Todo extends Component {
           tabIndex="0"
         >
           <div className={viewLarge ? 'button-text' : 'todo-archive-box'}>
-            {viewLarge ? buttonText : <SvgSymbol symbolId="#icon-archive" />}
+            { viewLarge ? buttonText : <SvgSymbol symbolId="#icon-archive" /> }
           </div>
         </div>
       );

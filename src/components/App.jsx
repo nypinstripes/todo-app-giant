@@ -70,6 +70,7 @@ class App extends Component {
     return (
       <div className={`app ${this.getPageName()}${this.getScrollOffset()}`}
         ref={ref => this.appEl = ref}
+        role="Application"
       >
         <ScrollTopButton />
         <Header />

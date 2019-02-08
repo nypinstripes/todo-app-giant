@@ -5,14 +5,16 @@ input {
     outline: none;
     text-shadow: 0 0 0 argb();
     @include backgrounds;
-    @include transitions($property: color)
+    @include float-box;
+    @include font-mass;
+    @include moz-placeholder(3.85rem);
     @include text-input-placeholder {
       color: $silver;
       margin-bottom: 0;
       @include font-mass;
-      @include transitions($property: color)
+      @include transitions($property: color);
     }
-    @include moz-placeholder(3.85rem);
+    @include transitions($property: color);
     &[disabled] {
       border-radius: 0;
       color: rgba($boulder, 0.8);
@@ -21,19 +23,11 @@ input {
       }
     }
     &:-webkit-autofill {
-      box-shadow: inset 0 0 5000px 100px white;
-      @include backgrounds(
-        $color: white,
-        $repeat: repeat,
-        $size: cover,
-        $xPos: 0,
-        $yPos: 0
-      );
-      @include transitions($duration: 5000ms, $property: box-shadow);
+      box-shadow: inset 0 0 0 100px white;
+      @include backgrounds($color: white, $repeat: repeat, $size: cover);
+      @include transitions($duration: 5s, $property: box-shadow);
     }
     &.inline-input {
-      @include float-box;
-      @include font-mass;
     }
     &.locked {
       background: rgba($mercury, 0.8);
