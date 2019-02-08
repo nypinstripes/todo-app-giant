@@ -1,6 +1,6 @@
 import breakpoints from '../../../shared/data/breakpoints.json';
 import { connect } from 'react-redux';
-import { func, object, number } from 'prop-types';
+import { bool, func, object, number } from 'prop-types';
 import { setTodoDeleted, setTodoUpdated } from '../../actions/actionCreators';
 import CheckControl from '../tools/CheckControl';
 import DeleteButton from '../tools/DeleteButton';
@@ -12,6 +12,7 @@ class Todo extends Component {
     setTodoDeleted: func,
     setTodoUpdated: func,
     item: object,
+    todosUpdated: bool,
     winW: number
   }
 
@@ -31,6 +32,14 @@ class Todo extends Component {
     const { item: nextItem } = nextProps;
 
     if (nextItem.status && item.status && nextItem.status !== item.status) {
+      this.setState({ currentStatus: nextItem.status });
+    }
+  }
+  componentWillUpdate(nextProps, nextState) {
+    const { todosUpdated } = this.props;
+    const { item: nextItem, todosUpdated: nextTodosUpdated } = nextProps;
+
+    if (todosUpdated !== nextTodosUpdated) {
       this.setState({ currentStatus: nextItem.status });
     }
   }
@@ -141,7 +150,9 @@ class Todo extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({});
+const mapStateToProps = (state, ownProps) => ({
+  todosUpdated: state.todosUpdated ? state.todosUpdated : false
+});
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setTodoDeleted(params) {

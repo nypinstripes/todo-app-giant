@@ -56,6 +56,20 @@ class Todos extends Component {
     }
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    const { setTodosUpdated, todosUpdated } = this.props;
+    const { todos: nextTodos, todosUpdated: nextTodosUpdated, type: nextType } = nextProps;
+
+    if (nextTodosUpdated && nextTodosUpdated !== todosUpdated) {
+      this.syncTodos({
+        todos: nextTodos,
+        type: nextType
+      });
+
+      setTodosUpdated(false);
+    }
+  }
+
   getListItems = () => {
     const { type, winW } = this.props;
     const { emptyType, listItems } = this.state;
